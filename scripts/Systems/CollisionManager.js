@@ -1,4 +1,4 @@
-import {JUMP_STATE} from "./JumpState.js";
+import {JUMP_STATE} from "../Components/JumpState.js";
 
 export function createCollisionGroups(p5) {
     let floor = new p5.Group();
@@ -9,7 +9,7 @@ export function createCollisionGroups(p5) {
     return {FLOOR: floor}
 }
 
-export function collision(p5, entity, collisionGroups) {
+export function collisionManager(p5, entity, collisionGroups) {
     if (entity.collides(collisionGroups.FLOOR) && Object.hasOwn(entity, 'jumpState')) {
         entity.jumpState = JUMP_STATE.GROUNDED;
     }
