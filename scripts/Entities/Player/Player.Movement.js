@@ -6,8 +6,11 @@ export function playerMovement(p5, player) {
 
     if (p5.kb.presses(' ')) {
         if (player.jumpState !== JUMP_STATE.DOUBLE_JUMP) {
-            if (p5.kb.pressing('left') && player.vel.x > -4) {
+            if (p5.kb.pressing('left') && player.vel.x > -3) {
                 player.rotationSpeed = -6;
+            }
+            if (p5.kb.pressing('right') && player.vel.x < 3) {
+                player.rotationSpeed = 6;
             }
             player.vel.y = -6;
         }
